@@ -1,5 +1,5 @@
 import './Payroll Form.css';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../Header/Header';
 import profile1 from '../../assets/images/image1.png';
 import profile2 from '../../assets/images/image2.png';
@@ -24,7 +24,6 @@ function PayrollForm() {
     const dept = ["HR", "Sales", "Finance", "Others", "Engineer"];
 
     const handleChange = (event) => {
-        console.log(event);
         const { value, checked } = event.target;
 
         if (checked) {
@@ -54,7 +53,6 @@ function PayrollForm() {
 
     const setData = (obj) => {
         console.log('obj1', obj);
-
         setName(obj.name);
         setProfile(obj.profilePic);
         setGender(obj.gender);
@@ -65,8 +63,10 @@ function PayrollForm() {
 
         const dep = obj.departments;
         console.log(dep);
+        console.log(dep[0]);
         if(dep[0] === "Others") {
-            document.getElementById("other").click();
+            console.log(document.getElementById("others"));
+            document.getElementById("others").click();
         }
 
         switch (obj.gender) {
@@ -77,13 +77,13 @@ function PayrollForm() {
         }
 
         switch (obj.profilePic) {
-            case '../../assets/images/image1.png': document.getElementById("profile1").click()
+            case '../../assets/images/image1.png': document.getElementById("profile1").click();
                 break;
-            case '../../assets/images/image2.png': document.getElementById("profile2").click()
+            case '../../assets/images/image2.png': document.getElementById("profile2").click();
                 break;
-            case '../../assets/images/image3.png': document.getElementById("profile3").click()
+            case '../../assets/images/image3.png': document.getElementById("profile3").click();
                 break;
-            default: document.getElementById("profile4").click()
+            default: document.getElementById("profile4").click();
                 break;
         }
     };
@@ -190,19 +190,19 @@ function PayrollForm() {
                         <div className="profile-radio-content wrap-content">
                             <label>
                                 <input type="radio" name="profile" id="profile1" value='../../assets/images/image1.png' onClick={e => setProfile(e.target.value)} required />
-                                <img src={profile1} className="profile" alt="" checked={profilePic === '../../assets/images/image1.png'} />
+                                <img src={profile1} className="profile" alt=""  />
                             </label>
                             <label>
                                 <input type="radio" name="profile" id="profile2" value='../../assets/images/image2.png' onClick={e => setProfile(e.target.value)} required />
-                                <img src={profile2} className="profile" alt="" checked={profilePic === '../../assets/images/image2.png'} />
+                                <img src={profile2} className="profile" alt=""  />
                             </label>
                             <label>
                                 <input type="radio" name="profile" id="profile3" value='../../assets/images/image3.png' onClick={e => setProfile(e.target.value)} required />
-                                <img src={profile3} className="profile" alt="" checked={profilePic === '../../assets/images/image3.png'} />
+                                <img src={profile3} className="profile" alt="" />
                             </label>
                             <label>
                                 <input type="radio" name="profile" id="profile4" value='../../assets/images/image4.png' onClick={e => setProfile(e.target.value)} required />
-                                <img src={profile4} className="profile" alt="" checked={profilePic === '../../assets/images/image4.png'} />
+                                <img src={profile4} className="profile" alt=""  />
                             </label>
                         </div>
                     </div>
